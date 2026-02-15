@@ -6,7 +6,7 @@ function arg(name, def) {
   return idx >= 0 ? process.argv[idx + 1] : def;
 }
 
-const treatment = arg('--treatment', 'A');
+const treatment = arg('--treatment', 'A'); // A o B
 const runs = Number(arg('--runs', '50'));
 const subject = arg('--subject', 'S01');
 
@@ -20,11 +20,9 @@ if (!fs.existsSync(outPath)) {
 
 function runOnce(i) {
   return new Promise((resolve) => {
-    const testName = treatment === 'A'
-      ? 'A - Espera estática (TODO del sujeto)'
-      : 'B - Espera explícita por condición/evento (TODO del sujeto)';
+    const grepTag = treatment === 'A' ? '@A' : '@B';
 
-    const p = spawn('npx', ['playwright', 'test', '--grep', testName], { shell: true });
+    const p = spawn('npx', ['playwright', 'test', '--grep', grepTag], { shell: true });
 
     let err = '';
     p.stderr.on('data', (d) => (err += d.toString()));

@@ -7,7 +7,7 @@
 
 ## 1) Descarga del kit
 1. Abra una terminal.
-2. Ejecute: git clone <URL_DEL_REPO>
+2. Ejecute: git clone https://github.com/Elxicor/kit-flaky-waits
 3. Entre al proyecto: cd kit-flaky-waits
 
 ## 2) Instalación
@@ -18,6 +18,7 @@
 1. En la misma terminal ejecute: npm run start
 2. Verifique en el navegador: http://localhost:3000 (debe ver el botón "Cargar datos")
 3. NO cierre esta terminal mientras corre el experimento.
+4. Abra una SEGUNDA terminal para ejecutar las pruebas mientras el servidor sigue corriendo.
 
 ## 4) Tratamientos (tareas)
 - Tratamiento A: edite el archivo tests/waits.todo.spec.js y complete el TODO(A) usando SOLO espera estática (waitForTimeout).
@@ -29,7 +30,7 @@ Reglas:
 
 ## 5) Ejecución y registro automático
 1. Defina su ID de sujeto (por ejemplo S03).
-2. Ejecute Tratamiento asignado:
+2. Ejecute:
    - A: node tools/run-repeated.mjs --treatment A --runs 50 --subject S03
    - B: node tools/run-repeated.mjs --treatment B --runs 50 --subject S03
 3. El CSV se guarda en /results/
