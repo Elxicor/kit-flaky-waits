@@ -9,8 +9,8 @@ test.describe('Tratamientos de espera (A/B)', () => {
     // Restricción: aquí NO se permite esperar por selector/condición; solo timeout fijo.
     // Ejemplo permitido: await page.waitForTimeout(500);
 
-    await expect(page.locator('#data')).toBeVisible();
-    await expect(page.locator('#data')).toHaveText('Datos cargados');
+    await expect(page.locator('#data')).toBeVisible({ timeout: 1 });
+    await expect(page.locator('#data')).toHaveText('Datos cargados', { timeout: 1 });
   });
 
   test('B - Espera explícita por condición/evento (TODO del sujeto)', async ({ page }) => {
